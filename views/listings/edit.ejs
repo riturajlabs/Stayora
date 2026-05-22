@@ -1,0 +1,194 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <form
+        class="col-11 col-sm-10 col-md-8 col-lg-6 needs-validation mt-4"
+        method="POST"
+        action="/listing/<%= data._id %>/?_method=PUT"
+        novalidate
+        enctype="multipart/form-data">
+
+            <h2 class="mb-4">
+                Edit your Listing
+            </h2>
+
+            <!-- Title -->
+
+            <div class="mb-3">
+
+                <label for="title" class="form-label">
+                    Title
+                </label>
+
+                <input
+                type="text"
+                name="listing[title]"
+                value="<%= data.title %>"
+                class="form-control rounded-3"
+                id="title"
+                required>
+
+                <div class="invalid-feedback">
+                    Title is required.
+                </div>
+
+            </div>
+
+            <!-- Description -->
+
+            <div class="mb-3">
+
+                <label for="description" class="form-label">
+                    Description
+                </label>
+
+                <textarea
+                name="listing[description]"
+                class="form-control rounded-3"
+                id="description"
+                rows="4"
+                required><%= data.description %></textarea>
+
+                <div class="invalid-feedback">
+                    Description is required.
+                </div>
+
+            </div>
+
+            <!-- Image -->
+
+            <div class="mb-3 ">
+
+                <div class="mb-3">
+                    Original Image <br>
+                    <img
+                        src="<%= originalImageUrl %>"
+                        class="img-thumbnail"
+                        style="width:200px;height:200px;object-fit:cover;border-radius: 1rem;"
+                    >
+                </div>
+                <label for="image" class="form-label">
+                    Upload Image
+                </label>
+
+                <input
+                type="file"
+                name="listing[image]"
+                value="<%= data.image.url %>"
+                class="form-control rounded-3"
+                id="image">
+
+                <div class="invalid-feedback">
+                    Please enter a valid image URL.
+                </div>
+
+            </div>
+
+            <!-- Price + Country -->
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="price" class="form-label">
+                        Price
+                    </label>
+
+                    <input
+                    type="number"
+                    name="listing[price]"
+                    value="<%= data.price %>"
+                    class="form-control rounded-3"
+                    id="price"
+                    required>
+
+                    <div class="invalid-feedback">
+                        Please enter a valid price.
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label for="country" class="form-label">
+                        Country
+                    </label>
+
+                    <input
+                    type="text"
+                    name="listing[country]"
+                    value="<%= data.country %>"
+                    class="form-control rounded-3"
+                    id="country"
+                    required>
+
+                    <div class="invalid-feedback">
+                        Please enter a valid country name.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Category -->
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="listing[category]" id="category" class="form-select rounded-3" required>
+                    <option value="">Select Category</option>
+                    <option value="Trending">Trending</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Iconic Cities">Iconic Cities</option>
+                    <option value="Mountain">Mountain</option>
+                    <option value="Castles">Castles</option>
+                    <option value="Amazing Pools">Amazing Pools</option>
+                    <option value="Arctic">Arctic</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Campaign">Campaign</option>
+                    <option value="Dome">Dome</option>
+                    <option value="Others">Others</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a category.
+                </div>
+            </div>
+
+            <!-- Location -->
+
+            <div class="mb-3">
+
+                <label for="location" class="form-label">
+                    Location
+                </label>
+
+                <input
+                type="text"
+                name="listing[location]"
+                value="<%= data.location %>"
+                class="form-control rounded-3"
+                id="location"
+                required>
+
+                <div class="invalid-feedback">
+                    Please enter a valid location.
+                </div>
+
+            </div>
+
+            <!-- Submit -->
+
+            <button
+            type="submit"
+            class="btn btn-danger w-100 rounded-pill py-2 mt-3">
+
+                Update Listing
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-md bg-white sticky-top shadow-sm">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-semibold" href="/">
+      <i class="fa-regular fa-compass me-1"></i>
+      StayOra
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNavAltMarkup"
+      ` aria-controls="navbarNavAltMarkup" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Left Links -->
+      <div class="navbar-nav gap-md-2">
+        <a class="nav-link" href="/listing">Explorer</a>
+      </div>
+
+      <!-- Search Form -->
+      <div class="ms-auto my-2 my-md-0 search-container">
+        <form class="d-flex flex-md-row" role="search" method="get" action="/listing">
+          <input 
+              class="form-control me-md-2 mb-2 mb-md-0 search-inp" 
+              type="search" 
+              placeholder="Search destination"
+              aria-label="Search" 
+              name="q"
+            />
+          <button class="btn btn-danger search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Links -->
+      <div class="navbar-nav ms-auto mt-2 mt-md-0 align-items-md-center gap-2 login-container">
+
+        <a class="nav-link add-to-home" href="/listing/new">Add your home</a>
+
+        <% if (!currUser) { %>
+          <a class="nav-link signup" href="/signup">Signup</a>
+          <a class="btn btn-danger rounded-pill px-4 login-btn" href="/login">Login</a>
+        <% } %>
+
+        <% if (currUser) { %>
+          <a class="btn btn-outline-dark rounded-pill px-4" href="/logout">Logout</a>
+        <% } %>
+
+      </div>
+
+    </div>
+
+  </div>
+</nav>

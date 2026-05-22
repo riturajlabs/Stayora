@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <form 
+        class="col-11 col-sm-9 col-md-7 col-lg-5 needs-validation mt-4"
+        method="POST"
+        action="/login"
+        novalidate>
+
+            <h2 class="mb-4">Log in to StayOra</h2>
+
+            <div class="mb-3">
+
+                <label for="username" class="form-label">
+                    Username
+                </label>
+
+                <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                class="form-control rounded-3"
+                id="username"
+                required>
+
+                <div class="invalid-feedback">
+                    Please enter a valid username.
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="password" class="form-label">
+                    Password
+                </label>
+
+                <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control rounded-3"
+                id="password"
+                required>
+
+                <div class="invalid-feedback">
+                    Please enter a valid password.
+                </div>
+
+            </div>
+
+            <button class="btn btn-danger w-100 mt-3 rounded-pill py-2">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-11 col-sm-9 col-md-7 col-lg-5">
+
+            <a
+            href="/signup"
+            class="btn btn-outline-light border-danger text-danger w-100 mt-3 rounded-pill py-2">
+
+                Create new Account
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
