@@ -20,6 +20,14 @@ const userRouter = require("./routes/user.js");
 
 const app = express();
 
+
+const helmet = require("helmet");
+const compression = require("compression");
+
+
+app.use(helmet());
+app.use(compression());
+
 // App config
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -46,7 +54,7 @@ main()
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: { 
-        secret: process.env.SESSION_SECRET || 'mySuperSecretecode' 
+        secret: process.env.SESSION_SECRET  
     },
     touchAfter: 24*60*60 // 24 hours
 });
@@ -54,7 +62,7 @@ const store = MongoStore.create({
 // Session middleware
 app.use(session({
     store,
-    secret: process.env.SESSION_SECRET || 'mySuperSecretecode',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: { 
@@ -116,6 +124,9 @@ app.use((err, req, res, next) => {
         next(err);
     }
 });
+ 
+const PORT = process.env.PORT || 8080;
 
-// Server
-app.listen(8080, () => console.log("Stayora listening on port 8080"));
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
