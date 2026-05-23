@@ -63,6 +63,6 @@ if(stars.length > 0){
 document.querySelectorAll('#filters a').forEach(link => {
   if (link.href === window.location.href) {
     link.classList.add('active-filter');
-    link.classList.add('filter a:active');
+   
   }
 });
