@@ -94,8 +94,8 @@ app.use("/listing/:id/reviews", reviewRouter);
 app.get("/", (req, res) => res.redirect("/listing"));
 
 // 404 handler
-app.use((req, res, next) => 
-    next(new ExpressError(404, "Page Not Found!")));
+// app.use((req, res, next) => 
+//     next(new ExpressError(404, "Page Not Found!")));
 
 // Global error handler
 app.use((err, req, res, next) => {
