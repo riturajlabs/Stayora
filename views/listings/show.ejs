@@ -14,13 +14,13 @@
       <img class="show-image img-fluid mb-3" src="<%= data.image.url %>" alt="listing image">
 
       <div class="show-details mb-4">
-        <p>
+        <p >
           <%- data.description.replace(/\n/g, '<br>') %><br><br>
           <strong>&#8377;<%= data.price ? data.price.toLocaleString("en-IN") : "Price not available" %></strong>
           <br>
           <%= data.location %>, <%= data.country %>
         </p>
-        <p><b>Hosted by <%= data.owner.firstName %> <%= data.owner.lastName %></b></p>
+        <p class="host-info"><b>Hosted by <%= data.owner.firstName %> <%= data.owner.lastName %></b></p>
       </div>
 
       <!-- Edit / Delete Buttons -->
@@ -67,7 +67,7 @@
       <div class="reviews-section">
         <% if(data.reviews && data.reviews.length > 0 ){ %>
             
-          <h4 class="mb-3">All Reviews</h4>
+          <h4 class= "mb-3">All Reviews</h4>
 
           <div id="reviews-container" class="row g-3">
             <% data.reviews.forEach((review, index) => { %>
@@ -115,7 +115,7 @@
       <!-- Map -->
       <div>
         <h3>Where you’ll be</h3>
-        <p><%= data.location %>, <%= data.country %></p>
+        <p class="map-par"><%= data.location %>, <%= data.country %></p>
         <div id="map" class="mt-1"></div>
       </div>
 
