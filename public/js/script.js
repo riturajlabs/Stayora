@@ -47,17 +47,27 @@ if(stars.length > 0){
 
 // display total taxes toggle btn
 
-  let taxSwitch = document.getElementById("checkNativeSwitch");
+  const taxSwitch = document.getElementById("checkNativeSwitch");
+
+if(taxSwitch){
+
     taxSwitch.addEventListener("click",()=>{
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for(info of taxInfo){
-            if(info.style.display != "inline"){
-                info.style.display = "inline"
+
+        const taxInfo = document.getElementsByClassName("tax-info");
+
+        for(const info of taxInfo){
+
+            if(info.style.display !== "inline"){
+                info.style.display = "inline";
             }else{
-                info.style.display = "none"
+                info.style.display = "none";
             }
+
         }
-    })
+
+    });
+
+}
 
 
 document.querySelectorAll('#filters a').forEach(link => {

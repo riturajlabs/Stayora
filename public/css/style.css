@@ -8,15 +8,13 @@
 }
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
     overscroll-behavior: none;
-
 }
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
